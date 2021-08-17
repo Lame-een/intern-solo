@@ -85,7 +85,7 @@ namespace DayTwo.Controllers
             }
 
             Globals.AlbumDictionary[albumName.ToLower()] = value;
-            return Request.CreateResponse(HttpStatusCode.NotFound, $"Cannot find {albumName}");
+            return Request.CreateResponse(HttpStatusCode.OK, value);
         }
 
         [HttpDelete]
