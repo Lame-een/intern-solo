@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.IO;
 using System.Data.SqlClient;
 using Day03.Models;
@@ -48,17 +49,27 @@ namespace Day03.App_Code
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
 
-            string sqlInsert = String.Format("INSERT INTO Song(Name, TrackNumber, AlbumID) " +
-                "VALUES ('{0}', {1}, {2})",
-                value.Name,
-                value.TrackNumber == null ? "NULL" : value.TrackNumber.ToString(),
-                value.AlbumGUID == null ? "NULL" : "'" + value.AlbumGUID.ToString() + "'");
+            const string sqlInsert = "INSERT INTO Song(Name, TrackNumber, AlbumID) VALUES (@Name, @TrackNumber, @AlbumID)";
             using (SqlConnection connection = Instance.NewConnection())
             {
                 try
                 {
                     connection.Open();
-                    adapter.InsertCommand = new SqlCommand(sqlInsert, connection);
+
+                    SqlCommand command = new SqlCommand(sqlInsert, connection);
+                    command.Parameters.AddWithValue("@Name", value.Name);
+
+                    if (value.TrackNumber.HasValue)
+                        command.Parameters.AddWithValue("@TrackNumber", value.TrackNumber);
+                    else
+                        command.Parameters.AddWithValue("@TrackNumber", DBNull.Value);
+
+                    if (value.AlbumGUID.HasValue)
+                        command.Parameters.AddWithValue("@AlbumID", value.AlbumGUID);
+                    else
+                        command.Parameters.AddWithValue("@AlbumID", DBNull.Value);
+
+                    adapter.InsertCommand = command;
                     return adapter.InsertCommand.ExecuteNonQuery();
                 }
                 catch (Exception)
@@ -70,13 +81,7 @@ namespace Day03.App_Code
 
         public static int UpdateSong(Guid songID, Song value)
         {
-            string sqlUpdate = String.Format("UPDATE song " +
-                "SET Name = '{0}', TrackNumber = {1}, AlbumID = {2} " +
-                "WHERE SongID = '{3}'",
-                value.Name,
-                value.TrackNumber == null ? "NULL" : value.TrackNumber.ToString(),
-                value.AlbumGUID == null ? "NULL" : "'" + value.AlbumGUID.ToString() + "'",
-                songID);
+            string sqlUpdate = "UPDATE song SET Name = @Name, TrackNumber = @TrackNumber, AlbumID = @AlbumID WHERE SongID = @SongID";
 
             SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -85,7 +90,23 @@ namespace Day03.App_Code
                 try
                 {
                     connection.Open();
-                    adapter.UpdateCommand = new SqlCommand(sqlUpdate, connection);
+
+                    SqlCommand command = new SqlCommand(sqlUpdate, connection);
+                    command.Parameters.AddWithValue("@Name", value.Name);
+
+                    if (value.TrackNumber.HasValue)
+                        command.Parameters.AddWithValue("@TrackNumber", value.TrackNumber);
+                    else
+                        command.Parameters.AddWithValue("@TrackNumber", DBNull.Value);
+
+                    if (value.AlbumGUID.HasValue)
+                        command.Parameters.AddWithValue("@AlbumID", value.AlbumGUID);
+                    else
+                        command.Parameters.AddWithValue("@AlbumID", DBNull.Value);
+
+                    command.Parameters.AddWithValue("@SongID", songID);
+
+                    adapter.UpdateCommand = command;
                     return adapter.UpdateCommand.ExecuteNonQuery();
                 }
                 catch (Exception)
@@ -97,7 +118,7 @@ namespace Day03.App_Code
 
         public static int DeleteSong(Guid songID)
         {
-            string sqlDelete = String.Format("DELETE FROM song WHERE SongID = '{0}'", songID);
+            string sqlDelete = "DELETE FROM song WHERE SongID = @SongID";
 
             SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -106,7 +127,11 @@ namespace Day03.App_Code
                 try
                 {
                     connection.Open();
-                    adapter.DeleteCommand = new SqlCommand(sqlDelete, connection);
+
+                    SqlCommand command = new SqlCommand(sqlDelete, connection);
+                    command.Parameters.AddWithValue("@SongID", songID);
+
+                    adapter.DeleteCommand = command;
                     return adapter.DeleteCommand.ExecuteNonQuery();
                 }
                 catch (Exception)
@@ -123,16 +148,21 @@ namespace Day03.App_Code
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
 
-            string sqlInsert = String.Format("INSERT INTO Album(Name, Artist, NumberOfTracks) " +
-                "VALUES ('{0}', '{1}', {2})",
-                value.Name,
-                value.Artist,
-                value.NumberOfTracks == null ? "NULL" : value.NumberOfTracks.ToString());
+            string sqlInsert = "INSERT INTO Album(Name, Artist, NumberOfTracks) VALUES (@Name, @Artist, @NumberOfTracks)";
             using (SqlConnection connection = Instance.NewConnection())
             {
                 try
                 {
                     connection.Open();
+
+                    SqlCommand command = new SqlCommand(sqlInsert, connection);
+                    command.Parameters.AddWithValue("@Name", value.Name);
+                    command.Parameters.AddWithValue("@Artist", value.Artist);
+                    if (value.NumberOfTracks.HasValue)
+                        command.Parameters.AddWithValue("@NumberOfTracks", value.NumberOfTracks);
+                    else
+                        command.Parameters.AddWithValue("@NumberOfTracks", DBNull.Value);
+
                     adapter.InsertCommand = new SqlCommand(sqlInsert, connection);
                     return adapter.InsertCommand.ExecuteNonQuery();
                 }
@@ -145,13 +175,7 @@ namespace Day03.App_Code
 
         public static int UpdateAlbum(Guid albumID, Album value)
         {
-            string sqlUpdate = String.Format("UPDATE album " +
-                "SET Name = '{0}', Artist = '{1}', NumberOfTracks = {2} " +
-                "WHERE AlbumID = '{3}'",
-                value.Name,
-                value.Artist,
-                value.NumberOfTracks == null ? "NULL" : value.NumberOfTracks.ToString(),
-                albumID);
+            string sqlUpdate = "UPDATE album SET Name = @Name, Artist = @Artist, NumberOfTracks = @NumberOfTracks WHERE AlbumID = @AlbumID";
 
             SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -160,7 +184,18 @@ namespace Day03.App_Code
                 try
                 {
                     connection.Open();
-                    adapter.UpdateCommand = new SqlCommand(sqlUpdate, connection);
+                    SqlCommand command = new SqlCommand(sqlUpdate, connection);
+
+                    command.Parameters.AddWithValue("@Name", value.Name);
+                    command.Parameters.AddWithValue("@Artist", value.Artist);
+                    if (value.NumberOfTracks.HasValue)
+                        command.Parameters.AddWithValue("@NumberOfTracks", value.NumberOfTracks);
+                    else
+                        command.Parameters.AddWithValue("@NumberOfTracks", DBNull.Value);
+
+                    command.Parameters.AddWithValue("@AlbumID", albumID);
+
+                    adapter.UpdateCommand = command;
                     return adapter.UpdateCommand.ExecuteNonQuery();
                 }
                 catch (Exception)
@@ -172,7 +207,7 @@ namespace Day03.App_Code
 
         public static int DeleteAlbum(Guid albumID)
         {
-            string sqlDelete = String.Format("DELETE FROM album WHERE AlbumID = '{0}'", albumID);
+            string sqlDelete = String.Format("DELETE FROM album WHERE AlbumID = @AlbumID", albumID);
 
             SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -181,7 +216,11 @@ namespace Day03.App_Code
                 try
                 {
                     connection.Open();
-                    adapter.DeleteCommand = new SqlCommand(sqlDelete, connection);
+
+                    SqlCommand command = new SqlCommand(sqlDelete, connection);
+                    command.Parameters.AddWithValue("@AlbumID", albumID);
+
+                    adapter.DeleteCommand = command;
                     return adapter.DeleteCommand.ExecuteNonQuery();
                 }
                 catch (Exception)
