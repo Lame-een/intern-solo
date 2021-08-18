@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 //better inventory system - items should be deep cloned(?) and more easily enchanted
 //attacks should have references to items or potentionally some other C# magic?
 
-namespace DayOne
+namespace Day01
 {
     class Program
     {

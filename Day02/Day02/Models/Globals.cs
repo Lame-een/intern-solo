@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DayTwo.Models
+namespace Day02.Models
 {
     public static class Globals
     {

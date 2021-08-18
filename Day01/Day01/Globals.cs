@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DayOne
+namespace Day01
 {
     static class Globals
     {

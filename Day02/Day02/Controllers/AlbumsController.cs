@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using DayTwo.Models;
+using Day02.Models;
 
-namespace DayTwo.Controllers
+namespace Day02.Controllers
 {
     public class AlbumsController : ApiController
     {

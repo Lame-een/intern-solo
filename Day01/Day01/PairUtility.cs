@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DayOne
+namespace Day01
 {
     //cheeky way to do the "generics" task
     class PairUtility<K, V> : IDeepCloneable<PairUtility<K, V>> 

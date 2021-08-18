@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Net.Http.Formatting;
 
-namespace DayTwo
+namespace Day02
 {
     public static class WebApiConfig
     {

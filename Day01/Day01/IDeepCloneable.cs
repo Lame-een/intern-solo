@@ -1,4 +1,4 @@
-﻿namespace DayOne
+﻿namespace Day01
 {
 
     public interface IDeepCloneable<T>

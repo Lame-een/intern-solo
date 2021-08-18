@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DayOne
+namespace Day01
 {
     class Entity
     {

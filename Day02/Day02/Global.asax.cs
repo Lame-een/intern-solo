@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
-using DayTwo.Models;
+using Day02.Models;
 
-namespace DayTwo
+namespace Day02
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1D55526D-CB62-4B56-80FC-8A6791EA77D1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DayOne</RootNamespace>
-    <AssemblyName>DayOne</AssemblyName>
+    <RootNamespace>Day01</RootNamespace>
+    <AssemblyName>Day01</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
