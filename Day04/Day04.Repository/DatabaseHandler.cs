@@ -6,29 +6,15 @@ namespace Day04.Repository
 {
     public sealed class DatabaseHandler
     {
-        //illusion of privacy
-        private const string _webConfigPath = "D:/dbcfg.cfg";
-        private static string _connectionString = "";
+        private static string _connectionString = "Server=tcp:ajanjic-intern.database.windows.net,1433;Initial Catalog=mono-internship-db;Persist Security Info=False;User ID=ajanjic;Password=IZwLQysyaSXmxg3QNpeO;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         private static readonly DatabaseHandler _instance = new DatabaseHandler();
-
-        private static void InitConnectionString()
-        {
-            //can be handled better, too lazy
-            using (FileStream fs = new FileStream(_webConfigPath, FileMode.Open))
-            {
-                StreamReader sr = new StreamReader(fs);
-                sr.BaseStream.Seek(0, SeekOrigin.Begin);
-                _connectionString = sr.ReadLine();
-            }
-        }
 
         static DatabaseHandler()
         {
         }
         private DatabaseHandler()
         {
-            InitConnectionString();
         }
         public static DatabaseHandler Instance
         {
