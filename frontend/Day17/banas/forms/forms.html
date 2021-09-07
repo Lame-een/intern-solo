@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>FORMS SO MANY SHAPES AND SIZES</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <form method="POST" enctype=multipart/form-data id="POSTform" onsubmit="submitFunc()">
+            Username: <input type="text" name="username"><br>
+            Password: <input type="password" name="password"><br>
+
+            <input type="hidden" name="browser" id="browser">
+            <input type="file" name="upload"><br>
+
+            History: <br>
+            <textarea name="history" rows="20" cols="50">Random worrds</textarea>
+
+
+            <fieldset>
+                <legend>Hobbies</legend>
+
+                Programming <input type="checkbox" name="programming">
+                Running <input type="checkbox" name="running">
+            </fieldset>
+            <fieldset>
+                <legend>Hobbies2</legend>
+
+                Programming <input type="radio" name="hobby2">
+                Running <input type="radio" name="hobby2">
+            </fieldset>
+
+
+            <input type="submit" name="submit" value="Submit"><br>
+            <input type="reset" name="reset" value="Reset"><br>
+
+            Favourite number:
+            <select name="favnum">
+                <optgroup label="constants">
+                    <option value="pi">Pi 3.14</option>
+                    <option value="e">e 2.718</option>
+                </optgroup>
+                <optgroup label="other">
+                    <option value="2">2</option>
+                </optgroup>
+            </select>
+        </form>
+
+        <form id="madform0">
+            <input type="text" id="i0" value="Person" />
+            <input type="text" id="i1" value="Noun" />
+            <input type="text" id="i2" value="Verb" />
+            <input type="text" id="i3" value="Verb" />
+            <input type="text" id="i4" value="Verb" />
+            <input type="text" id="i5" value="Verb" />
+            <input type="text" id="i6" value="Plural Verb" />
+            <input type="text" id="i7" value="Verb" />
+            <input type="text" id="i8" value="Adjective" />
+            <input type="text" id="i9" value="Noun" />
+            <input type="text" id="i10" value="Event" />
+            <input type="text" id="i11" value="Noun" />
+            <input type="text" id="i12" value="Body Part" />
+            <input type="text" id="i13" value="Noun" />
+
+
+        </form><br><br>
+        <button type="submit" onClick="alert('Hello')">Hello</button><br>
+        <button type="submit" onClick="calcPi(100000)">Get pie</button><br>
+        <button type="submit" onClick="getFibList(document.getElementById('fibInput0').value)">Get fibs</button><input type="number" id="fibInput0" value="10" step="5"><br>
+        <button type="submit" onClick="madLibGen()">Madlib generate</button><br>
+
+        <span class="output-span">Output:</span>
+        <textarea id="output0" rows=18> </textarea>
+
+
+    </div>
+
+</body>

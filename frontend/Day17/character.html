@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Begin your adventure</title>
+    <script src="character.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <nav id="horzNav">
+                <a href="index.html">Index</a>
+                <a href="combat.html">Combat</a>
+            </nav>
+        </header>
+
+        <section>
+            <h2>Customize your character</h2>
+
+            <form id="charaterForm" onsubmit="saveFunc()">
+                <table>
+                    <tr>
+
+                        <th>Name</th>
+                        <td>
+                            <input type="text" name="name"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Race</th>
+                        <td>
+                            <input type="text" name="race"><br>
+                        </td>
+                    </tr>
+                </table>
+                Description: <br><textarea name="charDesc" rows=10 cols=60>Describe your character.</textarea>
+                <br>
+
+                <fieldset>
+                    <legend>Armor</legend>
+                    <table>
+                        <tr>
+                            <th>Helmet</th>
+                            <td>
+                                <select id="armor0">
+                                    <option value="iron">Iron 5 def</option>
+                                    <option value="steel">Steel 10 def</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Chestplate</th>
+                            <td>
+                                <select id="armor1">
+                                    <option value="iron">Iron 5 def</option>
+                                    <option value="steel">Steel 10 def</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Legs</th>
+                            <td>
+                                <select id="armor2">
+                                    <option value="iron">Iron 5 def</option>
+                                    <option value="steel">Steel 10 def</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Boots</th>
+                            <td>
+                                <select id="armor3">
+                                    <option value="leather">Leather 1 def, 2 speed</option>
+                                    <option value="iron">Iron 5 def</option>
+                                    <option value="steel">Steel 10 def</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>Weapon</legend>
+                    <ul style="list-style-type:none;">
+                        <li><label><b>Short sword:</b> 5 atk<input type="radio" name="weapon" value="shortsword"></label></li>
+                        <li><label><b>Long sword:</b> 10 atk<input type="radio" name="weapon" value="longsword"></label></li>
+                        <li><label><b>Claymore:</b> 15 atk<input type="radio" name="weapon" value="claymore"></label></li>
+                        <li><label><b>Bow 5:</b> atk 15 range<input type="radio" name="weapon" value="bow"></label></li>
+                    </ul>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Stats</legend>
+                    Available points: <span id="pointsLeft">10</span>
+                    <table>
+                        <tr>
+                            <th>
+                                <label for="vitality0">Vitality</label>
+                            </th>
+                            <td>
+                                <input type="number" max="10" min="0" value="1" id="vitality0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="strength1">Strength</label>
+                            </th>
+                            <td>
+                                <input type="number" max="10" min="0" value="1" id="strength1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="agility2">Agility</label>
+                            </th>
+                            <td>
+                                <input type="number" max="10" min="0" value="1" id="agility2">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="intellect3">Intellect</label>
+                            </th>
+                            <td>
+                                <input type="number" max="10" min="0" value="1" id="intellect3">
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <!--<input type="submit" name="submit" value="Submit">-->
+                <input type="button" name="submit" value="Submit" onclick="saveFunc()">
+                <span class="pad"></span>
+                <input type="reset" name="reset" value="Reset" onclick="resetFunc()"><br>
+            </form>
+        </section>
+
+    </div>
+</body>

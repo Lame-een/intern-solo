@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <!-- redirect to redirect.html after 3 seconds
+        <meta http-equiv="refresh" content="3; url=redirect.html"/>
+    -->
+
+    <!-- Provides a description to the browser, about 200 characters-->
+    <meta name="description" content="This is very gud website" />
+
+    <!-- Less than 1k characters-->
+    <meta name="keywords" content="random, keywords, to, describe, the, webpage" />
+
+
+    <!-- index specifies to the search engine to index the page, and follow specifies to follow hyperlinks-->
+    <meta name="robots" content="index, follow" />
+
+    <!-- imports the javascript script-->
+    <script src="randomcolorchange.js"></script>
+
+
+    <!-- specified the base of all links
+        <base href="http://localhost/html/"/>
+    -->
+
+    <!-- stylesheet location -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- 16x16, 32x32, 48x48 favicon-->
+    <link rel="icon" href="favicon.png" />
+
+    <title>Page title here: Hello world!</title>
+</head>
+
+<!--
+    <body onload="alert('Hello I\'m very annoying')">
+    -->
+
+<body>
+
+    <!-- divs should be used for styling not structing-->
+    <div id="wrapper">
+        <noscript>Please enable JS</noscript>
+
+        <h1>Change with a click</h1>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin,
+            <br>rcu vel vestibulum ornare, nisl dolor suscipit dui, nec viverra mauris urna
+            <br>malesuada metus. Cras blandit tristique tellus ut vulputate. Maecenas urna eros,
+            <br>porttitor in mi vel, pellentesque eleifend justo. Maecenas placerat venenatis
+            <br>purus at fermentum. Pellentesque ut dignissim nulla, quis tristique purus.
+            <br>Nunc ac mollis justo, ut rutrum felis. Fusce sodales tellus a varius sagittis.
+            <br>Nulla facilisi. Duis ut elit enim. Donec turpis nisl, rutrum et ligula non,
+            <br>aliquet vestibulum ex. Donec mollis fermentum orci, non pulvinar sem porta vel.
+            <br>Quisque malesuada pharetra erat et fringilla. Nulla at ante eget erat tincidunt
+            <br>finibus. In at sem eget erat aliquet placerat a ac diam. Cras aliquam aliquam
+            <br>ullamcorper.
+        </p>
+
+        <hr>
+
+        <blockquote cite="http://notpron.org/notpron/">
+            This is a blockquote. Witness me!
+        </blockquote>
+
+        <q cite="https://hackervoiceim.in">
+            Hacker voice: <i>"I'm (dot) in".</i>
+        </q>
+
+
+        <!-- conserves the whitespaces -->
+        <pre>
+             /\ /\ 
+            ((ovo))
+            ():::()
+              VVV
+        </pre>
+
+        <img id="logoimg" src="favicon.png" width="48" height="48" alt="LOGO HERE" /><br>
+        <a href="javascript:toggleImg()">Toggle image</a><br>
+
+        <!-- 4 ways to emphasize text without a line break -->
+        <p>
+            <b>Bold : Bold Font</b><br>
+            <strong>Strong : Bold Font</strong><br>
+            <em>Emphasis : Italic Font</em><br>
+            <i>Italic : Italic Font</i><br>
+        </p>
+
+        <!-- 4 ways to format text for special purposes -->
+        <p>
+            <small>Small : Short Comment</small><br>
+            <ins>Insert : Added to Document</ins><br>
+            <del>Delete : Strike</del><br>
+            <samp>Sample Programming Output</samp><br><br>
+        </p>
+
+
+        <p>
+            <!-- Advisory tags -->
+            <!-- dfn (definition) adds emphasis to a word without title and a popup with title -->
+            <!-- kbd (keyboard) is used to emphasis input expected from a user-->
+            This is an abbreviation <abbr title="abbreviation">abbrv.</abbr><br>
+            <dfn>Definition: </dfn>the formal statement of the meaning or significance of a word<br>
+            <dfn title="the formal statement of the meaning or significance of a word">Definition</dfn><br>
+            <kbd>Enter something here</kbd>
+        </p>
+
+        <a href="https://youtube.com" title="Youtube">Youtube</a><br>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/N1AL2EMvVy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <audio controls autoplay preload>
+            <source src="awnu.ogg" type="audio/ogg">
+        </audio>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Foobar</title>
+</head>
+
+<body>
+    <!-- div wrapper often used for styling of the rest of the divs-->
+    <div id="wrapper">
+
+        <!-- The header normally contains the logo, the main header, search form -->
+        <header>
+            <a href="./helloworld/helloworld.html">
+                <img id="websiteLogo" alt="HELLO WORLD" src="./helloworld/favicon.png" />
+            </a>
+        </header>
+
+        <nav id="horzNav">
+            <p>
+                <a href="google.com">Google</a>
+                <a href="youtube.com">YouTube</a>
+            </p>
+        </nav>
+
+
+        <!-- We surround blocks of content in a document with section tags -->
+        <section>
+            <!-- Section elements should have a heading specific to it -->
+            <h2>Fun Fact</h2>
+
+            <!-- An article is a self contained block of content that is complete on its own with a heading and content -->
+            <article>
+
+                <h3>Tomato Fact</h3>
+                <p>Tomatoes are rich in lycopene, an antioxidant that is good for the heart and effective against
+                    certain cancers. Cooked tomatoes are actually better for you than raw ones, as more beneficial
+                    chemicals are released. Tomatoes are also packed with vitamins A and C, calcium, potassium.</p>
+
+                <!-- Content in an aside should be stand alone content related to the article -->
+                <aside>I don't care what anybody says: Nothing is better than a tomato you grow. - Tom Vilsack</aside>
+
+            </article>
+
+            <thead>
+                <tr>
+                    <td colspan="4">Best Baseball Players</td>
+                </tr>
+            </thead>
+
+        </section>
+
+        <section>
+            <h3>Types of Lists</h3>
+				
+            <!-- Unordered list -->
+            <ul id="uoListTypes">
+                <li>Unordered</li>
+                <li>Ordered</li>
+                <li>Definition</li>
+            </ul>
+            
+            <!-- Ordered list -->
+            <ol id="oListTypes">
+                <li>Harry Potter
+                    <ol id="oListIndent">
+                        <li>and the Sorcerer's Stone</li>
+                        <li>and the Half-Blood Prince</li>
+                        <li>and the Chamber of Secrets</li>
+                        <li>Prisoner of Azkaban</li>
+                        <li>and the Goblet of Fire</li>
+                        <li>and the Order of the Phoenix</li>
+                        <li>and the Deathly Hallows</li>
+                    </ol>
+                    
+                    <!-- To use lists in lists put the new ol between the top li -->
+                    </li>
+                <li>The Very Hungry Caterpillar</li>
+            </ol>
+            
+            <!-- Definition list : Surrounded by <dl>, list item surrounded by <dt>, <dfn> defines it is a word being defined and <dd> surrounds the definition -->
+            <dl>
+            <dt><dfn>Definition</dfn></dt>
+            <dd>the act of making definite, distinct, or clear</dd>
+            </dl>
+        </section>
+    </div>
+</body>

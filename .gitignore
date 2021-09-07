@@ -343,3 +343,6 @@ main.cpp
 
 #profiler outputfiles
 *.session.json
+
+#audio
+*.ogg
