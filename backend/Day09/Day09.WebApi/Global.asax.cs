@@ -10,6 +10,8 @@ using AutoMapper;
 using Day09.Model;
 using Day09.WebApi.Controllers;
 
+using System.Diagnostics;
+
 namespace Day09.WebApi
 {
     public class WebApiApplication : System.Web.HttpApplication
@@ -17,6 +19,12 @@ namespace Day09.WebApi
         private static ContainerBuilder GenerateBuilder()
         {
             ContainerBuilder builder = new ContainerBuilder();
+
+            Debug.WriteLine("\n\n");
+            Debug.WriteLine("\n\n");
+            Debug.WriteLine(Assembly.GetExecutingAssembly());
+            Debug.WriteLine("\n\n");
+            Debug.WriteLine("\n\n");
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterModule(new Service.DIModule());
